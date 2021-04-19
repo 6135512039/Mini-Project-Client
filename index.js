@@ -11,11 +11,10 @@ const bcrypt = require('bcrypt')
 const db = require('./database.js')
 let users = db.users
 
-let students = {
+let Cars = {
     list:
         [
-            { id: "6135512039", name: 'Kongkom', surname: 'Sumlee', major: "CoE", GPA: 2.53 },
-            { id: "6135512011", name: 'Ball', surname: 'Like', major: "SE", GPA: 2.87 },
+            { id: "001", band: 'Tesla', model: '3', hp: 450, price: "3,090,000" },
 
         ]
 }
@@ -32,59 +31,59 @@ router.use(express.json())
 router.use(express.urlencoded({ extended: false }))
 
 
-//Students
-router.route('/students')
-    .get((req, res) => res.json(students))
+//Cars
+router.route('/Cars')
+    .get((req, res) => res.json(Cars))
     .post((req, res) => {
         console.log(req.body)
-        //let id = (students.list.length)? students.list[students.list.length-1].id+1:1
-        let newStudent = {}
-        newStudent.id = (students.list.length) ? students.list[students.list.length-1].id+1 : 1
-        newStudent.name = req.body.name
-        newStudent.surname = req.body.surname
-        newStudent.major = req.body.major
-        newStudent.GPA  = req.body.GPA
-        students = { list: [...students.list, newStudent] }
-        res.json(students)
+        //let id = (Cars.list.length)? Cars.list[Cars.list.length-1].id+1:1
+        let newCar = {}
+        newCar.id = (Cars.list.length) ? Cars.list[Cars.list.length-1].id+1 : 1
+        newCar.band = req.body.band
+        newCar.model = req.body.model
+        newCar.hp = req.body.hp
+        newCar.price  = req.body.price
+        Cars = { list: [...Cars.list, newCar] }
+        res.json(Cars)
     })
 
-router.route('/students/:student_id') //params
+router.route('/Cars/:car_id') //params
     .get((req, res) => {
-        let id = students.list.findIndex((item) => (+item.id === +req.params.student_id))
+        let id = Cars.list.findIndex((item) => (+item.id === +req.params.car_id))
         
         if (id === -1) {
             res.send('Not Found')
         }
         else {
-            res.json(students.list[id])
+            res.json(Cars.list[id])
         }
         
 
     })
     .put((req, res) => {
-        let id = students.list.findIndex((item) => (+item.id === +req.params.student_id))
+        let id = Cars.list.findIndex((item) => (+item.id === +req.params.car_id))
         if (id === -1) {
             res.send('Not Found')
         }
         else {
-            students.list[id].name = req.body.name
-            students.list[id].surname = req.body.surname
-            students.list[id].major = req.body.major
-            students.list[id].GPA = req.body.GPA
-            res.json(students)
+            Cars.list[id].band = req.body.band
+            Cars.list[id].model = req.body.model
+            Cars.list[id].hp = req.body.hp
+            Cars.list[id].price = req.body.price
+            res.json(Cars)
         }
 
 
     })
     .delete((req, res) => {
        
-        let id = students.list.findIndex((item) => (+item.id === +req.params.student_id))
+        let id = Cars.list.findIndex((item) => (+item.id === +req.params.car_id))
         if (id === -1) {
             res.send('Not Found')
         }
         else {
-            students.list = students.list.filter((item) => +item.id !== +req.params.student_id)
-            res.json(students)
+            Cars.list = Cars.list.filter((item) => +item.id !== +req.params.car_id)
+            res.json(Cars)
         }
     })
 

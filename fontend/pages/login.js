@@ -61,7 +61,7 @@ export default function Login({ token }) {
             <Navbar />
               <div className={styles.containers}>          
                 <div className={styles.center}>
-                    <h1>Login</h1>
+                    <h1>Login to Admin Web!</h1>
                     <form>
                     <div className={styles.pass}>
                     <br />
@@ -71,10 +71,8 @@ export default function Login({ token }) {
                         <div>
                             {loginForm()}
                         </div>
-                        <div className={styles.pass}>
-                            <input type="checkbox"
-                            name="RememberMe"
-                            onChange={ (e) => setRememberme(e.target.value)}
+                        <div className={styles.checkbox}>
+                            <input type="checkbox" name="RememberMe" onChange={ (e) => setRememberme(e.target.value)}
                             /> Remember me!
                         </div>
                         <div>

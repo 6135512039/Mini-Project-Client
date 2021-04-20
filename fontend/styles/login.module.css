@@ -104,3 +104,9 @@
     cursor: pointer;
 }
 
+.checkbox {
+    margin: -5px 0 20px 5px;
+    color: #000000;
+    cursor: pointer;
+}
+

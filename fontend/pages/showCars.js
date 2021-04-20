@@ -42,8 +42,8 @@ const showCars = ({ token }) => {
       }
     return (
         <Layout>
+            <Navbar />
             <div className={styles.container}>
-                <Navbar />
                 {JSON.stringify(Cars.Cars)}
                 <br></br><br></br><br></br>
                 <h1>Cars List</h1>

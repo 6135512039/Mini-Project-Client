@@ -16,7 +16,7 @@ const Navbar = () => (
         <a class="nav-link" href="/getConfig">Config</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="/editCars">Cars Lists</a>
       </li>
     </ul>
   </div>

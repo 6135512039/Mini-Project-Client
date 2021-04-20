@@ -13,14 +13,11 @@ const Navbar = () => (
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/register">Register</a>
+        <a class="nav-link" href="/getConfig">Config</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Pricing</a>
       </li>
-      <span class="nav-item active">
-        <a class="nav-link " href="#">Disabled</a>
-      </span>
     </ul>
   </div>
   <div class="navbar navbar-dark bg-dark justify-content-between">

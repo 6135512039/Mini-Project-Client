@@ -9,7 +9,7 @@ const GetConfig = () => {
         <Head>
             <title>Get Config</title>
         </Head>
-        <div className={styles.container}>
+        <div className={styles.containers}>
             <Navbar />
             <h2> Get Configuration from ../config/config.js </h2>
             <b>Config: </b> {JSON.stringify(config)}

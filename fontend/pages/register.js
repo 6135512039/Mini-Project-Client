@@ -71,12 +71,12 @@ export default function Register({ token }) {
     return (
         <Layout>
             <Head>
-                <title>Register</title>
+                <title>Register to Admin Web</title>
             </Head> 
             <Navbar />
             <div className={styles.containers}>
                 <div className={styles.center}>
-                    <h1>Register</h1>
+                    <h1>Register to Admin Web!</h1>
                     <form>
                     <div className={styles.pass}>
                     <br />
@@ -87,9 +87,11 @@ export default function Register({ token }) {
                             {registerForm()}
                         </div>
                         <div>
+                        <br />
                             <button onClick={register} className={styles.submit}>Register</button>
-                            <br /><br />
+                        <br />
                         </div>
+                        <br /><br />
                     </form>
                 </div>
             </div>

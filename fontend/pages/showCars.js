@@ -7,7 +7,6 @@ import axios from 'axios'
 import carAuth from '../components/carAuth'
 import config from '../config/config'
 
-
 const URL = `${config.URL}/Cars`
 const showCars = ({ token }) => {
 
@@ -43,9 +42,6 @@ const showCars = ({ token }) => {
       }
     return (
         <Layout>
-            <Head>
-                <title>Cars</title>
-            </Head>
             <div className={styles.container}>
                 <Navbar />
                 {JSON.stringify(Cars.Cars)}

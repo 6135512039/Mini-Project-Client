@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/register.module.css'
 import Navbar from '../components/navbar'
 import axios from 'axios'
 import config from '../config/config'
@@ -38,34 +38,30 @@ export default function Register({ token }) {
     }
 
     const registerForm = () => (
-        <div className={styles.gridContainer}>
-            <div>
-                Username:
-            </div>
-            <div>
+        <div>
+            <div className={styles.txt_field}>
                 <input type="text"
                     name="username"
-                    placeholder="username"
                     onChange={(e) => setUsername(e.target.value)}
                 />
+                <span></span>
+                <label>Username</label>                
             </div>
-            <div>
-                Email:
-            </div>
-            <div>
+            <div className={styles.txt_field}>
                 <input type="email"
                     name="email"
-                    placeholder="email"
-                    onChange={(e) => setEmail(e.target.value)} />
+                    onChange={(e) => setEmail(e.target.value)} 
+                    />
+                    <span></span>
+                    <label>Email</label>
             </div>
-            <div>
-                Password:
-            </div>
-            <div>
+            <div className={styles.txt_field}>
                 <input type="password"
                     name="password"
-                    placeholder="password"
-                    onChange={(e) => setPassword(e.target.value)} />
+                    onChange={(e) => setPassword(e.target.value)} 
+                    />
+                    <span></span>
+                    <label>Email</label>
             </div>
 
         </div>
@@ -76,25 +72,25 @@ export default function Register({ token }) {
         <Layout>
             <Head>
                 <title>Register</title>
-            </Head>
-            <div className={styles.container}>
-                <Navbar />
-                <h1>Register</h1>
-                <div><b>Token:</b> {token.substring(0, 15)}...
-                <button
-                        onClick={() => { navigator.clipboard.writeText(token) }}>
-                        Copy token
-                </button>
-                </div>
-                <br />
-            Status:  {status}
-                <br /><br />
-                <div className={styles.content}>
-                    {registerForm()}
-                </div>
-
-                <div>
-                    <button onClick={register} className={styles.btn}>Register</button>
+            </Head> 
+            <Navbar />
+            <div className={styles.containers}>
+                <div className={styles.center}>
+                    <h1>Register</h1>
+                    <form>
+                    <div className={styles.pass}>
+                    <br />
+                        Status:  {status}
+                    <br />
+                    </div>
+                        <div>
+                            {registerForm()}
+                        </div>
+                        <div>
+                            <button onClick={register} className={styles.submit}>Register</button>
+                            <br /><br />
+                        </div>
+                    </form>
                 </div>
             </div>
         </Layout>

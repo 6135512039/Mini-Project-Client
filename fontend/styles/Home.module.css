@@ -1,10 +1,13 @@
 .container {
-    /*min-height: 100vh;*/
-    padding: 1 2rem;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
+    color: white;
     font-family: Montserrat;
-    align-items: center;
-    border: 12px solid rgb(253, 176, 34); 
+    background-image: url("https://i.pinimg.com/originals/32/48/9c/32489cab069dc21a05632018d8854086.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
 }
 .center{
     text-align: center;

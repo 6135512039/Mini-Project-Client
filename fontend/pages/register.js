@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
-import styles from '../styles/register.module.css'
+import styles from '../styles/Home.module.css'
 import Navbar from '../components/navbar'
 import axios from 'axios'
 import config from '../config/config'
@@ -38,30 +38,34 @@ export default function Register({ token }) {
     }
 
     const registerForm = () => (
-        <div>
-            <div className={styles.txt_field}>
+        <div className={styles.gridContainer}>
+            <div>
+                Username:
+            </div>
+            <div>
                 <input type="text"
                     name="username"
+                    placeholder="username"
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <span></span>
-                <label>Username</label>                
             </div>
-            <div className={styles.txt_field}>
+            <div>
+                Email:
+            </div>
+            <div>
                 <input type="email"
                     name="email"
-                    onChange={(e) => setEmail(e.target.value)} 
-                    />
-                    <span></span>
-                    <label>Email</label>
+                    placeholder="email"
+                    onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <div className={styles.txt_field}>
+            <div>
+                Password:
+            </div>
+            <div>
                 <input type="password"
                     name="password"
-                    onChange={(e) => setPassword(e.target.value)} 
-                    />
-                    <span></span>
-                    <label>Email</label>
+                    placeholder="password"
+                    onChange={(e) => setPassword(e.target.value)} />
             </div>
 
         </div>
@@ -71,28 +75,26 @@ export default function Register({ token }) {
     return (
         <Layout>
             <Head>
-                <title>Register to Admin Web</title>
-            </Head> 
-            <Navbar />
-            <div className={styles.containers}>
-                <div className={styles.center}>
-                    <h1>Register to Admin Web!</h1>
-                    <form>
-                    <div className={styles.pass}>
-                    <br />
-                        Status:  {status}
-                    <br />
-                    </div>
-                        <div>
-                            {registerForm()}
-                        </div>
-                        <div>
-                        <br />
-                            <button onClick={register} className={styles.submit}>Register</button>
-                        <br />
-                        </div>
-                        <br /><br />
-                    </form>
+                <title>Register</title>
+            </Head>
+            <div className={styles.container}>
+                <Navbar />
+                <h1>Register</h1>
+                <div><b>Token:</b> {token.substring(0, 15)}...
+                <button
+                        onClick={() => { navigator.clipboard.writeText(token) }}>
+                        Copy token
+                </button>
+                </div>
+                <br />
+            Status:  {status}
+                <br /><br />
+                <div className={styles.content}>
+                    {registerForm()}
+                </div>
+
+                <div>
+                    <button onClick={register} className={styles.btn}>Register</button>
                 </div>
             </div>
         </Layout>

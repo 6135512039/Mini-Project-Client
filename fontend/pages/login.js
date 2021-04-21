@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import { useState } from 'react'
 import Navbar from '../components/navbar'
-import styles from '../styles/login.module.css'
+import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import config from '../config/config'
 
@@ -30,21 +30,25 @@ export default function Login({ token }) {
     }
 
     const loginForm = () => (
-        <div >
-            <div className={styles.txt_field}>
+        <div className={styles.gridContainer}>
+            <div>
+                Username:
+            </div>
+            <div>
                 <input type="text"
                     name="username"
+                    placeholder="username"
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <span></span>
-                <label>Username</label>
             </div>
-            <div className={styles.txt_field}>
+            <div>
+                Password:
+            </div>
+            <div>
                 <input type="password"
                     name="password"
+                    placeholder="password"
                     onChange={(e) => setPassword(e.target.value)} />
-                <span></span>
-                <label>Password</label>
             </div>
         </div>
     )
@@ -58,29 +62,33 @@ export default function Login({ token }) {
             <Head>
                 <title>Login</title>
             </Head>
-            <Navbar />
-              <div className={styles.containers}>          
-                <div className={styles.center}>
-                    <h1>Login to Admin Web!</h1>
-                    <form>
-                    <div className={styles.pass}>
-                    <br />
-                        Status:  {status}
-                    <br />
-                    </div>
-                        <div>
-                            {loginForm()}
-                        </div>
-                        <div className={styles.checkbox}>
-                            <input type="checkbox" name="RememberMe" onChange={ (e) => setRememberme(e.target.value)}
-                            /> Remember me!
-                        </div>
-                        <div>
-                            <button onClick={login} className={styles.submit}>Login</button>
-                            <br /><br />
-                        </div>
-                    </form>
+            <div className={styles.container}>
+                <Navbar />
+                <h1>Login</h1>
+                <div><b>Token:</b> {token.substring(0, 15)}...
+                <button onClick={copyText}> Copy token </button>
                 </div>
+                <br/>
+                <div>
+                    Status: {status}  
+                </div>
+                <br />
+                <div className={styles.content}>
+                {loginForm()}
+                </div>  
+
+                <div>
+                    <input type="checkbox"
+                        name="RememberMe"
+                        onChange={ (e) => setRememberme(e.target.value)}
+                    />Remember me!
+                </div>
+                
+                <div>
+                    <button onClick={login} className={styles.btn}>Login</button>
+                    <br /><br />
+                </div>
+
             </div>
         </Layout>
     )

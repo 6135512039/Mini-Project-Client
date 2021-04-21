@@ -12,8 +12,6 @@ export default function Home({ token }) {
     </Head>
     <Navbar />
     <div className={styles.container}>
-        
-        
         <h1>Home page</h1>
         No login required!
     </div>

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import { useEffect, useState } from 'react'
-import styles from '../styles/car.module.css'
+import styles from '../styles/Carlist.module.css'
 import axios from 'axios'
 import carAuth from '../components/carAuth'
 import config from '../config/config'
@@ -33,7 +33,7 @@ const showCars = ({ token }) => {
                Band : {(Car) ? Car.band : '-'} <br></br>
                Model : {(Car) ? Car.model : '-'}  <br></br>
                HP : {(Car) ? Car.hp : '-'}  <br></br>
-               Price : {(Car) ? Car.price : '-'}  <br></br> 
+               Price : {(Car) ? Car.price : '-'}  <br></br>
             </li>)
             ))
         else {
@@ -49,6 +49,7 @@ const showCars = ({ token }) => {
                 <h1>Cars List</h1>
                 <ul className={styles.list}>
                     {printCars()}
+                    
                 </ul>
                 
             </div>

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import { useEffect, useState } from 'react'
-import styles from '../styles/car.module.css'
+import styles from '../styles/Carlist.module.css'
 import axios from 'axios'
 import carAuth from '../components/carAuth'
 import config from '../config/config'
@@ -74,8 +74,9 @@ const editCars = ({ token }) => {
             <Head>
                 <title>Cars</title>
             </Head>
+            <Navbar />
             <div className={styles.container}>
-                <Navbar />
+                <br></br><br></br><br></br><br></br><br></br><br></br>
                 {JSON.stringify(Cars.Cars)}
                 <br></br><br></br><br></br>
                 <h1>Cars List</h1>

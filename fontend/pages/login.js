@@ -64,7 +64,7 @@ export default function Login({ token }) {
                     <input type="checkbox"
                         name="RememberMe"
                         onChange={ (e) => setRememberme(e.target.value)}
-                    />Remember me!
+                    />&nbsp;Remember me!
                     <br /><br />
                 </div>
                 

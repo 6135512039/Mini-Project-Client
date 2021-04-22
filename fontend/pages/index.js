@@ -12,8 +12,7 @@ export default function Home({ token }) {
     </Head>
     <Navbar />
     <div className={styles.container}>
-        <h1>Home page</h1>
-        No login required!
+        <h1>Welcome To Tang Car Shop Home page</h1>
     </div>
 </Layout>
   )

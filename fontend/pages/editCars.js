@@ -33,11 +33,11 @@ const editCars = ({ token }) => {
         console.log('Cars:', Cars)
         if (Cars.list && Cars.list.length)
             return (Cars.list.map((Car, index) =>
-            (<li key={index} className={styles.listItem}>
-                Band : {(Car) ? Car.band : '-'} <br></br>
-                Model : {(Car) ? Car.model : '-'}  <br></br>
-                HP : {(Car) ? Car.hp : '-'}  <br></br>
-                Price : {(Car) ? Car.price : '-'} 
+            (<li key={index} className={styles.listItem2}>
+                <b>Band : {(Car) ? Car.band : '-'} </b>
+                <b>Model : {(Car) ? Car.model : '-'}</b> 
+                <b>HP : {(Car) ? Car.hp : '-'} </b> 
+                <b>Price : {(Car) ? Car.price : '-'} </b>
                 <button onClick={() => updateCar(Car.id)} className={`${styles.button} ${styles.btnEdit}`}>Update</button>
                 <button onClick={() => deleteCar(Car.id)} className={`${styles.button} ${styles.btnDelete}`}> Delete </button>
             </li>)
@@ -76,18 +76,20 @@ const editCars = ({ token }) => {
             </Head>
             <Navbar />
             <div className={styles.container}>
-                <br></br><br></br><br></br><br></br><br></br><br></br>
+                <br></br>
                 {JSON.stringify(Cars.Cars)}
                 <br></br><br></br><br></br>
                 <h1>Cars List</h1>
                 <ul  className={styles.list}> {printCars()}</ul>
-                <h1>Add Student</h1>
-                <div className={styles.listItem2}>
+                <div className={styles.form}>
+                    <h1>Add Student</h1>
+                    <br></br>
                     Band : <input type="text" onChange={(e) => setBand(e.target.value)} className={styles.textInput} />
                     Model : <input type="text" onChange={(e) => setModel(e.target.value)} className={styles.textInput}/>
                     HP : <input type="text" onChange={(e) => setHP(e.target.value)}className={styles.textInput} />
-                    Price : <input type="number" onChange={(e) => setPrice(e.target.value)} className={styles.textInput}/>
-                    <button onClick={() => addCar(band, model, hp, price)} className={`${styles.button} ${styles.btnAdd}`}>Add New Car</button>
+                    Price : <input type="text" onChange={(e) => setPrice(e.target.value)} className={styles.textInput}/>
+                    <br></br><br></br>
+                    <button onClick={() => addCar(band, model, hp, price)}>Add New Car</button>
                 </div>
 
             </div>

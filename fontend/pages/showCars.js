@@ -30,14 +30,18 @@ const showCars = ({ token }) => {
         if (Cars.list && Cars.list.length)
             return (Cars.list.map((Car, index) =>
             (<li key={index} className={styles.listItem}>
-               Band : {(Car) ? Car.band : '-'} <br></br>
-               Model : {(Car) ? Car.model : '-'}  <br></br>
-               HP : {(Car) ? Car.hp : '-'}  <br></br>
-               Price : {(Car) ? Car.price : '-'}  <br></br>
+               <b>Band : {(Car) ? Car.band : '-'}</b> 
+               <b>Model : {(Car) ? Car.model : '-'}</b>   
+               <b>HP : {(Car) ? Car.hp : '-'}</b>  
+               <b>Price : {(Car) ? Car.price : '-'}</b> 
             </li>)
             ))
         else {
-            return (<h2>No Cars</h2>)
+            return (
+            <div className={styles.container}>
+            <h2>No Cars</h2>
+            </div>
+            )
         }
       }
     return (
@@ -49,9 +53,7 @@ const showCars = ({ token }) => {
                 <h1>Cars List</h1>
                 <ul className={styles.list}>
                     {printCars()}
-                    
-                </ul>
-                
+                </ul>  
             </div>
         </Layout>
     )

@@ -18,16 +18,16 @@ const Navbar = () => (
     </ul>
   </div>
   <div class="navbar navbar-dark bg-dark justify-content-between">
-  <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/login">login<span class="sr-only">(current)</span></a>
-      </li>
+  <ul class="navbar-nav">      
       <li class="nav-item active">
         <a class="nav-link" href="/register">Register<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/logout">logout<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+      </li>      
     </ul>
 </div>
 </nav>

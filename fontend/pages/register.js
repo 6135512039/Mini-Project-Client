@@ -93,7 +93,7 @@ export default function Register({ token }) {
             <Navbar />
             <div className={styles.body}>
                 
-                <div className={styles.loginpage}>
+                <div className={styles.registerpage}>
                     {registerForm()}
                 </div>
             </div>

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import { useState } from 'react'
 import Navbar from '../components/navbar'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/login.module.css'
 import axios from 'axios'
 import config from '../config/config'
 
@@ -30,10 +30,20 @@ export default function Login({ token }) {
     }
 
     const loginForm = () => (
-        <div className={styles.gridContainer}>
-            <div>
-                Username:
-            </div>
+        <div className={styles.form}>
+
+            <h1>Login Admin</h1>
+                <br/>
+                <div><b>Token:</b> {token.substring(0, 15)}...
+                <button onClick={copyText}> Copy token </button>
+                <br /><br />
+                </div>
+
+                <div>
+                    Status: {status}
+                    <br /><br />
+                </div>
+
             <div>
                 <input type="text"
                     name="username"
@@ -41,15 +51,27 @@ export default function Login({ token }) {
                     onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
-            <div>
-                Password:
-            </div>
+
             <div>
                 <input type="password"
                     name="password"
                     placeholder="password"
                     onChange={(e) => setPassword(e.target.value)} />
-            </div>
+                    <br /><br />
+            </div> 
+
+            <div>
+                    <input type="checkbox"
+                        name="RememberMe"
+                        onChange={ (e) => setRememberme(e.target.value)}
+                    />Remember me!
+                    <br /><br />
+                </div>
+                
+                <div>
+                    <button onClick={login}>Login</button>
+                    <br /><br />
+                </div>
         </div>
     )
 
@@ -62,33 +84,11 @@ export default function Login({ token }) {
             <Head>
                 <title>Login</title>
             </Head>
-            <div className={styles.container}>
-                <Navbar />
-                <h1>Login</h1>
-                <div><b>Token:</b> {token.substring(0, 15)}...
-                <button onClick={copyText}> Copy token </button>
-                </div>
-                <br/>
-                <div>
-                    Status: {status}  
-                </div>
-                <br />
-                <div className={styles.content}>
+            <Navbar />
+            <div className={styles.body}>
+                <div className={styles.loginpage}>
                 {loginForm()}
                 </div>  
-
-                <div>
-                    <input type="checkbox"
-                        name="RememberMe"
-                        onChange={ (e) => setRememberme(e.target.value)}
-                    />Remember me!
-                </div>
-                
-                <div>
-                    <button onClick={login} className={styles.btn}>Login</button>
-                    <br /><br />
-                </div>
-
             </div>
         </Layout>
     )

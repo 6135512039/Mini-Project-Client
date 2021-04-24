@@ -82,7 +82,7 @@ const editCars = ({ token }) => {
                 <h1>Cars List</h1>
                 <ul  className={styles.list}> {printCars()}</ul>
                 <div className={styles.form}>
-                    <h1>Add Student</h1>
+                    <h1>Add New Car</h1>
                     <br></br>
                     Band : <input type="text" onChange={(e) => setBand(e.target.value)} className={styles.textInput} />
                     Model : <input type="text" onChange={(e) => setModel(e.target.value)} className={styles.textInput}/>

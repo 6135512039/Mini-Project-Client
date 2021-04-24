@@ -8,6 +8,8 @@ import carAuth from '../components/carAuth'
 import config from '../config/config'
 
 const URL = `${config.URL}/Cars`
+const URL2 = "http://localhost/api/BuyCars"
+
 const showCars = ({ token }) => {
 
     const [Cars, setCars] = useState( {
@@ -25,15 +27,29 @@ const showCars = ({ token }) => {
         let Car = await axios.get(URL)
         setCars(Car.data)
     }
+
+    const addCar = async (band, model, hp, price) => {
+        let result = await axios.post(URL, { band, model, hp, price })
+        console.log(result.data)
+        setCars(result.data)
+    }
+
+    const addCart = async (band, model, hp, price) => {
+        let result = await axios.post(URL2, { band, model, hp, price })
+        console.log(result.data)
+        setCart(result.data)
+    }
+    const [Cart, setCart] = useState({})
     const printCars = () => {
         console.log('Cars:', Cars)
         if (Cars.list && Cars.list.length)
             return (Cars.list.map((Car, index) =>
-            (<li key={index} className={styles.listItem}>
+            (<li key={index} className={styles.listItem4}>
                <b>Band : {(Car) ? Car.band : '-'}</b> 
                <b>Model : {(Car) ? Car.model : '-'}</b>   
                <b>HP : {(Car) ? Car.hp : '-'}</b>  
                <b>Price : {(Car) ? Car.price : '-'}</b> 
+               <a href="/BuyCars"><button onClick={() => addCart(Car.band, Car.model, Car.hp, Car.price)} className={`${styles.button} ${styles.btnEdit}`}>Add  Cart</button></a>
             </li>)
             ))
         else {

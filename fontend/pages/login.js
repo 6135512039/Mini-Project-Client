@@ -69,7 +69,7 @@ export default function Login({ token }) {
                 </div>
                 
                 <div>
-                    <button onClick={login}>Login</button>
+                <button onClick={login}>Login</button>
                     <br /><br />
                 </div>
         </div>

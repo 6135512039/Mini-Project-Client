@@ -87,6 +87,76 @@ router.route('/Cars/:car_id') //params
         }
     })
 
+
+
+
+
+
+    let BuyCars = {
+        list:
+            [
+                { id: "001", band: 'Tesla', model: '3', price: "3,090,000" },
+    
+            ]
+    }
+
+    router.route('/BuyCars')
+    .get((req, res) => res.json(BuyCars))
+    .post((req, res) => {
+        console.log(req.body)
+        //let id = (BuyCars.list.length)? BuyCars.list[BuyCars.list.length-1].id+1:1
+        let newCar = {}
+        newCar.id = (BuyCars.list.length) ? BuyCars.list[BuyCars.list.length-1].id+1 : 1
+        newCar.band = req.body.band
+        newCar.model = req.body.model
+        newCar.price  = req.body.price
+        BuyCars = { list: [...BuyCars.list, newCar] }
+        res.json(BuyCars)
+    })
+
+router.route('/BuyCars/:car_id') //params
+    .get((req, res) => {
+        let id = BuyCars.list.findIndex((item) => (+item.id === +req.params.car_id))
+        
+        if (id === -1) {
+            res.send('Not Found')
+        }
+        else {
+            res.json(BuyCars.list[id])
+        }
+        
+
+    })
+    .put((req, res) => {
+        let id = BuyCars.list.findIndex((item) => (+item.id === +req.params.car_id))
+        if (id === -1) {
+            res.send('Not Found')
+        }
+        else {
+            BuyCars.list[id].band = req.body.band
+            BuyCars.list[id].model = req.body.model
+            BuyCars.list[id].price = req.body.price
+            res.json(BuyCars)
+        }
+
+
+    })
+    .delete((req, res) => {
+       
+        let id = BuyCars.list.findIndex((item) => (+item.id === +req.params.car_id))
+        if (id === -1) {
+            res.send('Not Found')
+        }
+        else {
+            BuyCars.list = BuyCars.list.filter((item) => +item.id !== +req.params.car_id)
+            res.json(BuyCars)
+        }
+    })
+
+
+
+
+    
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', { session: false }, (err, user, info) => {
         console.log('Login: ', req.body, user, err, info)
@@ -112,6 +182,10 @@ router.post('/login', (req, res, next) => {
             return res.status(422).json(info)
     })(req, res, next)
 })
+
+
+
+
 
 router.get('/logout', (req, res) => { 
     res.setHeader(

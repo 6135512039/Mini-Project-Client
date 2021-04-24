@@ -87,6 +87,21 @@
    margin: 8px 8px 0px 8px;
    cursor: pointer;
    border-radius: 10px;
+   width: 100%;
+}
+
+.button2 {
+   border: none;
+   color: white;
+   padding: 8px 8px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 1rem;
+   margin: 8px 8px 0px 8px;
+   cursor: pointer;
+   border-radius: 10px;
+   width: 80%;
 }
 
 .listItem2 {
@@ -105,6 +120,44 @@
    background-repeat: no-repeat;
    background-size: cover;
    height: 35VH;
+   width: 40VW;
+}
+
+.listItem3 {
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   border: 7px solid rgb(70, 70, 70);
+   font-size: 1.4rem;
+   position: relative;
+   z-index: 1;
+   max-width: 360px;
+   margin: 0 auto 100px;
+   padding: 45px;
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+   background-image: url("https://static.vecteezy.com/system/resources/previews/000/623/448/non_2x/auto-car-logo-template-vector-icon.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 25VH;
+   width: 40VW;
+}
+
+.listItem4 {
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   border: 7px solid rgb(70, 70, 70);
+   font-size: 1.4rem;
+   position: relative;
+   z-index: 1;
+   max-width: 360px;
+   margin: 0 auto 100px;
+   padding: 45px;
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+   background-image: url("https://static.vecteezy.com/system/resources/previews/000/623/448/non_2x/auto-car-logo-template-vector-icon.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 30VH;
    width: 40VW;
 }
  
@@ -196,3 +249,20 @@
 .form button:hover,.form button:active,.form button:focus {
   background: #7c7c7c;
 }
+
+.btnbuy {
+   border: none;
+   color: rgb(255, 255, 255);
+   padding: 8px 8px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 1rem;
+   margin: 8px 8px 0px 8px;
+   cursor: pointer;
+   border-radius: 10px;
+   width: 50%;
+   background-color: #4CAF50;
+
+}
+
